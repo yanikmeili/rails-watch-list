@@ -1,5 +1,9 @@
 <h1>Mes listes:</h1>
+
+<div class="card d-flex inline-block m-3 p-3">
 <h1><% @lists.each do |list| %></h1>
 <p><%= link_to list.name, list_path(list) %></p>
 <% end %>
+</div>
+
 <%= link_to 'add new list', new_list_path %>
