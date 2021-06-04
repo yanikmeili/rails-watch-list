@@ -10,8 +10,6 @@
     </div>
 
 <% end  %>
-  <%= cl_image_tag(@list.photo.key,
- width:400, height:300, crop: :fill) if @list.photo.attached? %>
 <p> <%= link_to 'Add movie', new_list_bookmark_path(@list) %> </p>
 <p> <%= link_to 'back to list', root_path %> </p>
 
