@@ -1,16 +1,17 @@
 <h1><%= @list.name %></h1>
-<h1><% @bookmarks.each do |bookmark| %></h1>
+<% @bookmarks.each do |bookmark| %>
 
-<div class="card d-flex inline-block m-3 p-3">
- <p> <%= bookmark.movie.title %></p>
-<p><%= bookmark.movie.overview %></p>
-<p><%= bookmark.movie.rating %></p>
-<p> <%= image_tag bookmark.movie.poster_url, alt: bookmark.movie.poster_url, class: 'movie' %></p>
-<p><%= bookmark.comment %></p>
-</div>
-
+    <div class="card d-flex inline-block m-3 p-3">
+     <p> <%= bookmark.movie.title %></p>
+    <p><%= bookmark.movie.overview %></p>
+    <p><%= bookmark.movie.rating %></p>
+    <p> <%= image_tag bookmark.movie.poster_url, alt: bookmark.movie.poster_url, class: 'movie' %></p>
+    <p><%= bookmark.comment %></p>
+    </div>
 
 <% end  %>
+  <%= cl_image_tag(@list.photo.key,
+ width:400, height:300, crop: :fill) if @list.photo.attached? %>
 <p> <%= link_to 'Add movie', new_list_bookmark_path(@list) %> </p>
 <p> <%= link_to 'back to list', root_path %> </p>
 

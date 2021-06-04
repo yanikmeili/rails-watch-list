@@ -1,12 +1,19 @@
 <h1>Mes listes:</h1>
 
 <div class="card d-flex inline-block m-3 p-3">
-<h1><% @lists.each do |list| %></h1>
-<p><%= link_to list.name, list_path(list) %></p>
+<% @lists.each do |list|  %>
+<div class="card-trip">
+  <img src='<%= cl_image_tag(list.photo.key) if list.photo.attached? %>'>
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= link_to list.name , list_path(list) %></h2>
+
+    </div>
+  </div>
+</div>
 <% end %>
 </div>
 
-<%= link_to 'add new list', new_list_path %>
 
-<%= cl_image_tag("irmoteznlak73a0jo0lz",
-      width: 400, height: 300, crop: :fill) %>
+
+<%= link_to 'add new list', new_list_path %>
