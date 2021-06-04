@@ -3,10 +3,10 @@
 <div class="card d-flex inline-block m-3 p-3">
 <% @lists.each do |list|  %>
 <div class="card-trip">
-  <%= cl_image_tag list.photo.key if list.photo.attached? %>
+  <img src='<%= cl_image_path list.photo.key if list.photo.attached? %>'>
   <div class="card-trip-infos">
     <div>
-      <h2><%= link_to list.name , list_path(list) %></h2>
+      <h2><%= link_to list.name , list_path(list), class:"btn btn-ghost" %></h2>
 
     </div>
   </div>
@@ -16,4 +16,4 @@
 
 
 
-<%= link_to 'add new list', new_list_path %>
+<%= link_to 'add new list', new_list_path, class:"btn btn-ghost" %>
